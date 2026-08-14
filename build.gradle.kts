@@ -69,5 +69,7 @@ dependencies {
     api(project(":nms:versions:20_5", "reobf"))
     api(project(":nms:versions:21", "reobf"))
     api(project(":nms:versions:21_2", "reobf"))
-    api(project(":nms:versions:26_2", "reobf"))
+    // 26.1+ dev bundles (data version 8) no longer provide reobf mappings,
+    // so the module is consumed as its default (mojang-mapped) jar
+    api(project(":nms:versions:26_2"))
 }
