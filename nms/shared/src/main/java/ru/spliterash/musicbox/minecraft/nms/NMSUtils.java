@@ -7,14 +7,22 @@ public class NMSUtils {
     public static int parseMajorVersion(String raw) {
         int firstDotIndex = raw.indexOf(".");
 
-        raw = raw.substring(firstDotIndex + 1);
+        String first = raw.substring(0, firstDotIndex);
 
-        int secondDotIndex = raw.indexOf(".");
+        // Legacy scheme: 1.19.2 -> major version is 19 (the second segment)
+        // New scheme: 26.2 -> major version is 26 (the first segment)
+        if (first.equals("1")) {
+            raw = raw.substring(firstDotIndex + 1);
 
-        if (secondDotIndex != -1)
-            raw = raw.substring(0, secondDotIndex);
+            int secondDotIndex = raw.indexOf(".");
 
-        return Integer.parseInt(raw);
+            if (secondDotIndex != -1)
+                raw = raw.substring(0, secondDotIndex);
+
+            return Integer.parseInt(raw);
+        }
+
+        return Integer.parseInt(first);
     }
 
     public static String getRawVersion() {

@@ -1,9 +1,9 @@
 plugins {
     `java-library`
-    id("io.github.goooler.shadow") version "8.1.7"
-    id("io.freefair.lombok") version "8.6"
-    id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
-    id("io.papermc.paperweight.userdev") version "1.7.1" apply false
+    id("com.gradleup.shadow") version "9.6.1"
+    id("io.freefair.lombok") version "9.5.0"
+    id("de.eldoria.plugin-yml.bukkit") version "0.9.0"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.21" apply false
 }
 
 bukkit {
@@ -69,4 +69,5 @@ dependencies {
     api(project(":nms:versions:20_5", "reobf"))
     api(project(":nms:versions:21", "reobf"))
     api(project(":nms:versions:21_2", "reobf"))
+    api(project(":nms:versions:26_2", "reobf"))
 }
